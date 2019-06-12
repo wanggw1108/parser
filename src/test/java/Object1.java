@@ -1,7 +1,4 @@
-import parse.annotation.Filter;
-import parse.annotation.Rule;
-import parse.annotation.RuleType;
-import parse.annotation.Split;
+import parse.annotation.*;
 import parse.filters.MoneyFilter;
 
 import java.util.List;
@@ -32,6 +29,12 @@ public class Object1 {
     @Filter(MoneyFilter.class)
     private String testNext;
     @Rule("table:contains(姓名) tr:eq(0)")
+    //或者
+//    @Rules({
+//            @Rule("table:contains(姓名)"),
+//            @Rule("tr:eq(0)")
+//    })
+    //Rules可指定多个规则，按顺序提取
     @Split("td")
     private List<String> stringList;
 
